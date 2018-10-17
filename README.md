@@ -30,6 +30,7 @@ Assuming that file `7.jpg` exists in the current directory and the API is up and
 ```
 curl -XPOST --data-binary "@7.jpg" http://localhost:5000/classify
 ```
+Images for testing are available in `resources` subdir.
 
 ## 2. Running in dev environment
 
