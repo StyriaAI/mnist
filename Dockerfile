@@ -15,11 +15,12 @@ RUN echo LC_ALL=en_US.UTF-8 >> /etc/environment && \
     echo LANG=en_US.UTF-8 > /etc/locale.conf && \
     locale-gen en_US.UTF-8
 
+# install dependencies
+COPY requirements.txt /app/requirements.txt
+RUN pip3 install -r /app/requirements.txt
+
 # copy code
 COPY . /app
-
-# install dependencies
-RUN pip3 install -r /app/requirements.txt
 
 # basic configuration
 ENV UWSGI_HTTP_SOCKET=0.0.0.0:8080 \

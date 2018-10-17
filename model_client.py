@@ -10,6 +10,7 @@ INPUT_NAME = "image"
 OUTPUT_NAME = "classes"
 GRAPH_SIGNATURE_NAME = "classify"
 SIGNATURE_DEF_KEY = "signature_def"
+IMAGE_SHAPE = (28, 28)
 
 
 class ModelClient(object):
