@@ -9,6 +9,9 @@ from model_client import ModelClient
 
 
 def create_and_init_app():
+    """
+    Initialize flask app instance.
+    """
     app = Flask(__name__)
     app.model_client = ModelClient(config.model_server_uri, config.model_name)
     app.register_blueprint(bp)

@@ -11,11 +11,17 @@ bp = Blueprint('digit', __name__)
 
 @bp.route("/", methods=["GET"])
 def status():
+    """
+    Return basic status on root route.
+    """
     return generate_ok_response("API running")
 
 
 @bp.route("/classify", methods=["POST"])
 def classify():
+    """
+    Classify image from request body.
+    """
     raw_img = BytesIO(request.get_data())
 
     try:
