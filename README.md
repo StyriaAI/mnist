@@ -78,13 +78,15 @@ Here are the example `docker run` commands that can be used to run the service u
 ### With default config
 
 ```
-docker run mnist
+docker run -p 8080:8080 mnist
 ```
+
+Afther the command above, API will be available on port `8080`
 
 ### Configured through env vars
 
 ```
-docker run -e MNIST_MODEL_SERVER_URI=localhost:8500 -e MNIST_MODEL=mnist mnist
+docker run -e MNIST_MODEL_SERVER_URI=localhost:8500 -e MNIST_MODEL=mnist -p 8080:8080 mnist
 ```
 
 ### Configured through JSON config file
@@ -98,5 +100,5 @@ First, create a JSON file on path `/tmp/config.json` with the following contents
 ```
 Then run the following command:
 ```
-docker run -e MNIST_CONFIG=/config.json -v /tmp/config.json:/config.json:ro mnist
+docker run -e MNIST_CONFIG=/config.json -v /tmp/config.json:/config.json:ro -p 8080:8080 mnist
 ```
