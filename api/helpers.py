@@ -60,6 +60,7 @@ def preprocess_jpeg_image(data, shape):
     :param shape: tuple (int, int), target image shape
     :returns: np.ndarray, decoded image
     """
+    data.seek(0)
     img = Image.open(data)
     img.load()
 
