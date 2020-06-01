@@ -88,7 +88,8 @@ Afther the command above, API will be available on port `8080`
 HINT: Be mindful of container namespacing. Each container has its own complete namespace, including networking. That means, `localhost` in one container is not the same in the other, and not one container
 will have it the same as your default system namespace. Luckily, the Dockerfile of this API will build its image in a way that its http server, in this case, `uWSGI`, will listen on all the network
 interfaces of the container so when sending http requests, it's enough to expose the ports like in the example below. This will setup port-forwarding from your system's loopback device, i.e.
-`localhost:8080` to the container network interface on port 8080. Since `uWSGI` is setup to listen on all of the container's interfaces, it will surely catch therequest.
+`localhost:8080` to the container network interface on port 8080. Since `uWSGI` is setup to listen on all of the container's interfaces, it will surely catch the request. In order for the API container to
+"see" the model container an additional component will have to be created and specified if you're creating the containers using the docker CLI like in the examples.
 
 ```
 docker run -e MNIST_MODEL_SERVER_URI=<docker_dns_of_model_server_container>:8500 -e MNIST_MODEL=mnist -p 8080:8080 mnist
